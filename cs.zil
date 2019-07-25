@@ -4950,7 +4950,7 @@ and it's roughly pentagonal." CR>)
 		      (<P? POUR (COKE NITROGEN) *>
 		       <COND (<FSET? ,PENTAGRAM ,RMUNGBIT>
 			      <TELL
-"The pentagram is now almostly entirely effaced." CR>)
+"The pentagram is now almost entirely effaced." CR>)
 			     (ELSE
 			      <TELL
 CTHE ,PRSO " pours on the ground, spreading towards the lines of the
