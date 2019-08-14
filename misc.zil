@@ -67,7 +67,7 @@
 ;<ROUTINE CDPRINT (O)
 	 <DPRINT .O T>>
 
-<ROUTINE DPRINT (O "OPTIONAL" (CAP? <>) (THE? <>) "AUX" S)
+<ROUTINE DPRINT (O "OPTIONAL" (CAP? <>) (THE? <>))
 	 <COND (<OR .THE? <FSET? .O ,THE>>
 		<COND (.CAP? <PRINTI "The ">)
 		      (T <PRINTI "the ">)>)>
@@ -614,7 +614,7 @@ be included when the crunch comes."
 	     <GETB ,P-SYNTAX ,P-SPREP1>>
 	 <TELL "?" CR>>
 
-<ROUTINE PERFORM (A "OPTIONAL" (O <>) (I <>) "AUX" (V <>) OA OO OI CNT)
+<ROUTINE PERFORM (A "OPTIONAL" (O <>) (I <>) "AUX" (V <>) OA OO OI)
 	 <SETG PERFORM-DEPTH <+ ,PERFORM-DEPTH 1>>
 	 %<DEBUG-CODE
 	   <COND (,ZDEBUG

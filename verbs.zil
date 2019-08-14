@@ -190,7 +190,7 @@
 	 <SETG D-BIT <>>
 	 <CRLF>>
 
-<ROUTINE V-QUIT ("OPTIONAL" (ASK? T) "AUX" SCOR)
+<ROUTINE V-QUIT ("OPTIONAL" (ASK? T))
 	 %<DEBUG-CODE <TELL-C-INTS>>
 	 <V-SCORE>
 	 <COND (<OR <AND .ASK?
@@ -252,7 +252,7 @@ game position, or end this session of the game?" CR>
 	       (T
 		<RFALSE>)>>
 
-<ROUTINE V-RESTORE ("AUX" X Y)
+<ROUTINE V-RESTORE ("AUX" X)
 	 <SET X <GET ,SOUND-FLAG 0>>
 	 %<IFSOUND <KILL-SOUNDS>>
 	 <COND (<RESTORE>
@@ -370,7 +370,7 @@ Release ">
 		<NEW-VERB ,V?TELL>
 		<RTRUE>)>>
 
-<ROUTINE FIND-IN (WHERE WHAT "AUX" W)
+<ROUTINE FIND-IN (WHERE WHAT)
 	 <MAP-CONTENTS (W .WHERE)
 		       (END <RFALSE>)
 		 <COND (<AND <FSET? .W .WHAT> <VISIBLE? .W>>
@@ -418,7 +418,7 @@ Release ">
 		     (ELSE " in ")>
 	       THE .AV "!" CR>>
 
-<ROUTINE V-BOARD ("AUX" AV)
+<ROUTINE V-BOARD ()
 	 <TELL ,YOU-ARE-NOW "in ">
 	 <THE-PRSO>
 	 <MOVE ,WINNER ,PRSO>
@@ -587,10 +587,10 @@ they are identical." CR>)
 	       (ELSE
 		<TELL "It's not in anything." CR>)>>
 
-<ROUTINE V-DRINK ("AUX" S)
+<ROUTINE V-DRINK ()
 	 <YOU-CANT-X-THAT "drink">>
 
-<ROUTINE V-DRINK-FROM ("AUX" X)
+<ROUTINE V-DRINK-FROM ()
 	 <COND ;(<PRSO? ,WATER>
 		<PERFORM ,V?DRINK ,PRSO>
 		<RTRUE>)
@@ -611,7 +611,7 @@ they are identical." CR>)
 		<TELL "Dropped." CR>)
 	       (ELSE <RTRUE>)>>
 
-<ROUTINE V-EAT ("AUX" H)
+<ROUTINE V-EAT ()
 	 <COND (<AND <GETPT ,PRSO ,P?HEAT>
 		     <FSET? ,PRSO ,FOODBIT>>
 		<TELL "It tastes " <HEAT ,PRSO> ,PERIOD>)
@@ -619,7 +619,7 @@ they are identical." CR>)
 		<TELL
 "The food here is terrible, but this is ridiculous!" CR>)>>
 
-<ROUTINE V-ENTER ("AUX" VEHICLE)
+<ROUTINE V-ENTER ()
 	 <COND (<IN? ,PENTAGRAM ,HERE>
 		<PERFORM ,V?BOARD ,PENTAGRAM>
 		<RTRUE>)
@@ -635,7 +635,7 @@ they are identical." CR>)
 		<TELL "First, it's covered with slime. ">
 		<RFALSE>)>>
 
-<ROUTINE V-EXAMINE ("AUX" H)
+<ROUTINE V-EXAMINE ()
 	 <COND (<AND <FSET? ,PRSO ,READBIT>
 		     <GETP ,PRSO ,P?TEXT>>
 		<NEW-VERB ,V?READ>
@@ -718,7 +718,7 @@ they are identical." CR>)
 	       (T
 		<UNINTERESTED ,PRSI>)>>
 
-<ROUTINE V-HELLO ("AUX" OWINNER)
+<ROUTINE V-HELLO ()
 	 <COND (,PRSO
 		<COND (<FSET? ,PRSO ,PERSON>
 		       <NEW-WINNER-PRSO ,PRSA>
@@ -1035,7 +1035,7 @@ Rose Bowl.)" CR>>
 	       (ELSE
 		<YOU-CANT-X-THAT "pour">)>>
 
-<ROUTINE EMPTY-ALL (FROM TO "AUX" F N R (1ST? <>))
+<ROUTINE EMPTY-ALL (FROM TO "AUX" R (1ST? <>))
 	 <MAP-CONTENTS (F N .FROM)
 		       <COND (<FSET? .F ,TAKEBIT>
 			      <SET 1ST? T>
@@ -1204,7 +1204,7 @@ S "You feel something " "in " THE ,PRSO "!" CR>
 <ROUTINE V-SRUB ()
 	 <RTRUE>>
 
-<ROUTINE V-RUB ("AUX" H)
+<ROUTINE V-RUB ()
 	 <COND (<GETPT ,PRSO ,P?HEAT>
 		<TELL "It's " <HEAT ,PRSO> ,PERIOD>)
 	       (<PRSO? ,AIR>
@@ -1248,7 +1248,7 @@ CTHE ,PRSO " refuses." CR>)
 <ROUTINE V-SGIVE ()
 	 <RTRUE>>
 
-<ROUTINE V-SHAKE ("AUX" X)
+<ROUTINE V-SHAKE ()
 	 <COND (<FSET? ,PRSO ,PERSON>
 		<TELL "Be real." CR>)
 	       ;(<NOT <FSET? ,PRSO ,TAKEBIT>>
@@ -1455,7 +1455,7 @@ access to it.  e.g.,
 	       (T
 		<TO-A-PRSO?>)>>
 
-<ROUTINE V-THROUGH ("AUX" M)
+<ROUTINE V-THROUGH ()
 	<COND (<PRSO? ,ROOMS>
 	       <DO-WALK ,P?IN>)
 	      (<PRSO? ,INTNAME>
@@ -1507,7 +1507,7 @@ access to it.  e.g.,
 <ROUTINE V-TIE-UP ()
 	 <TO-A-PRSO?>>
 
-<ROUTINE V-TIME ("AUX" X)
+<ROUTINE V-TIME ()
 	 <TELL "It seems like three o'clock in the morning." CR>>
 
 <ROUTINE V-TORTURE ()
@@ -1699,7 +1699,7 @@ CTHE ,PRSO>
 
 <GLOBAL FUMBLE-NUMBER 9>
 
-<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT OBJ)
+<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT)
 	 <COND (<NOT <FSET? ,PRSO ,TAKEBIT>>
 		<COND (.VB
 		       <TELL-YUKS>)>
@@ -1764,7 +1764,7 @@ to take it as well." CR>)>
 		<MOVE ,PRSO <LOC ,WINNER>>
 		<RTRUE>)>>
 
-<ROUTINE CCOUNT (OBJ "AUX" (CNT 0) X)
+<ROUTINE CCOUNT (OBJ "AUX" (CNT 0))
 	 <MAP-CONTENTS (X .OBJ)
 		       (END <RETURN .CNT>)
 	      <COND (<AND <EQUAL? .X ,HAND>
@@ -1775,7 +1775,7 @@ to take it as well." CR>)>
 
 ;"WEIGHT: Gets sum of SIZEs of supplied object, recursing to nth level."
 
-<ROUTINE WEIGHT (OBJ "AUX" CONT (WT 0))
+<ROUTINE WEIGHT (OBJ "AUX" (WT 0))
 	 <COND (<AND <EQUAL? .OBJ ,HAND>
 		     <FSET? ,HAND ,PERSON>>
 		T)
