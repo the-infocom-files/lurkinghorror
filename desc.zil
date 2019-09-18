@@ -202,7 +202,7 @@ Prints nothing and rfalses if there was nothing to list.
 	 <COND (<EQUAL? .OBJ ,HERE>
 		<TELL "There is ">)
 	       (<EQUAL? .OBJ ,PLAYER>
-		<COND (<EQUAL? ,D-BIT ,WEARBIT>
+		<COND (<EQUAL? ,D-BIT <BOR ,D-INCLUDE ,WEARBIT>>
 		       <TELL " You are wearing ">)
 		      (T
 		       <TELL "You are carrying ">)>)
@@ -234,6 +234,8 @@ Prints nothing and rfalses if there was nothing to list.
 "determines if an object is describable at all."
 
 <GLOBAL D-BIT <>>	;"bit to screen objects"
+<CONSTANT D-INCLUDE 128>
+<CONSTANT D-EXCLUDE 64>
 
 <ROUTINE DESCRIBABLE? (OBJ "OPT" (CONT? <>))
 	 <COND (<FSET? .OBJ ,INVISIBLE> <RFALSE>)
@@ -243,11 +245,12 @@ Prints nothing and rfalses if there was nothing to list.
 		<RFALSE>)
 	       (<AND <NOT .CONT?> <FSET? .OBJ ,NDESCBIT>>
 		<RFALSE>)
-	       (,D-BIT
-		<COND (<G? ,D-BIT 0>
-		       <COND (<FSET? .OBJ ,D-BIT> <RTRUE>)
-			     (ELSE <RFALSE>)>)
-		      (<NOT <FSET? .OBJ <- ,D-BIT>>>
+	       (<BAND ,D-BIT ,D-INCLUDE>
+		<COND (<FSET? .OBJ <BAND ,D-BIT 63>>
+		       <RTRUE>)
+		      (ELSE <RFALSE>)>)
+	       (<BAND ,D-BIT ,D-EXCLUDE>
+		<COND (<NOT <FSET? .OBJ <BAND ,D-BIT 63>>>
 		       <RTRUE>)
 		      (ELSE <RFALSE>)>)
 	       (ELSE
