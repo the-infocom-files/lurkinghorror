@@ -20,13 +20,11 @@ The following sources provide further information on the Lurking Horror:
 
 ## Version History
 
-Zarf's Obsessively Complete Infocom Catalog holds copies of the game files for every existing version of The Lurking Horror listed in the Infocom Fact Sheet. It also holds the source files for versions 203/870506 and 221/870918.
-
-| Release | Serial | Story File                      | Zarf Sources             | Historical Sources |
-| -------:|:------:|:-------------------------------:|:------------------------:|:------------------:|
-|     203 | 870506 | [lurkinghorror-r203-s870506.z3] | [lurkinghorror-r203.zip] |     [revision 203] |
-|     219 | 870912 | [lurkinghorror-r219-s870912.z3] |                        - |                  - |
-|     221 | 870918 | [lurkinghorror-r221-s870918.z3] | [lurkinghorror-r221.zip] |   [final revision] |
+| Release | Serial | Type | Story File                      | Obsessive Sources        | Historical Sources |
+| -------:|:------:|:----:|:-------------------------------:|:------------------------:|:------------------:|
+|     203 | 870506 |  PUB | [lurkinghorror-r203-s870506.z3] | [lurkinghorror-r203.zip] |     [revision 203] |
+|     219 | 870912 |  PUB | [lurkinghorror-r219-s870912.z3] |                        - |                  - |
+|     221 | 870918 |  PUB | [lurkinghorror-r221-s870918.z3] | [lurkinghorror-r221.zip] |   [final revision] |
 
 [lurkinghorror-r203-s870506.z3]: https://eblong.com/infocom/gamefiles/lurkinghorror-r203-s870506.z3
 [lurkinghorror-r203.zip]: https://eblong.com/infocom/sources/lurkinghorror-r203.zip
