@@ -178,12 +178,12 @@
 	"about to keel over from exhaustion">>
 
 <ROUTINE V-INVENTORY ()
-	 <SETG D-BIT <- ,WEARBIT>>
+	 <SETG D-BIT <BOR ,D-EXCLUDE ,WEARBIT>>
 	 <COND (<NOT <DESCRIBE-CONTENTS ,WINNER
 					<>
 					<+ ,D-ALL? ,D-PARA?>>>
 		<TELL "You are empty-handed.">)>
-	 <SETG D-BIT ,WEARBIT>
+	 <SETG D-BIT <BOR ,D-INCLUDE ,WEARBIT>>
 	 <DESCRIBE-CONTENTS ,WINNER
 			    <>
 			    <+ ,D-ALL? ,D-PARA?>>
