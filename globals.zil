@@ -290,7 +290,7 @@ some reason."
 	 <TELL " here." CR>
 	 <END-QUOTE>>
 
-<ROUTINE FIND-NOT-HERE (TBL PRSO? "AUX" M-F OBJ)
+<ROUTINE FIND-NOT-HERE (TBL PRSO? "AUX" M-F)
 ;"Special-case code goes here. <MOBY-FIND .TBL> returns # of matches. If 1,
 then P-MOBY-FOUND is it. You can treat the 0 and >1 cases alike or differently.
 Always return RFALSE (not handled) if you have resolved the problem."
@@ -441,7 +441,7 @@ Always return RFALSE (not handled) if you have resolved the problem."
 	 <TELL
 "Talking to yourself is a sign of impending mental collapse." CR>>
 
-<ROUTINE ME-F ("AUX" OLIT)
+<ROUTINE ME-F ()
 	 <COND (<P? EXAMINE ,ME>
 		<V-DIAGNOSE>)
 	       (<VERB? TELL HELP>

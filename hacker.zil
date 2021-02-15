@@ -11,7 +11,7 @@
 	(CONTFCN HACKER-F)
 	(ACTION HACKER-F)>
 
-<ROUTINE HACKER-DESC ("OPT" RARG OBJ)
+<ROUTINE HACKER-DESC ("OPT" RARG)
 	 <COND (<RARG? OBJDESC?> <RTRUE>)
 	       (ELSE
 		<COND (<HERE? ,TERMINAL-ROOM>
@@ -716,7 +716,7 @@ readout above the controls. The microwave is ">
 
 <ADJ-SYNONYM HIGH HI>
 
-<ROUTINE CONTROLS-F ("AUX" ADJ N)
+<ROUTINE CONTROLS-F ("AUX" ADJ)
 	 <COND (<VERB? EXAMINE READ>
 		<TELL
 "There are controls labelled 0 to 9, WM, LO, MED, HI, START, CLEAR, and

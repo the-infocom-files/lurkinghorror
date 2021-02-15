@@ -1404,7 +1404,7 @@ CTHE ,FLASHLIGHT " clicks off">
 "It doesn't open. It appears to be one of those rechargeable lights,
 so you can't easily get at the battery." CR>)>>
 
-<ROUTINE I-FLASHLIGHT ("AUX" (HERE? <>) OLIT)
+<ROUTINE I-FLASHLIGHT ("AUX" (HERE? <>))
 	 <COND (<SET HERE? <EQUAL? <META-LOC ,FLASHLIGHT> ,HERE>>
 		<TELL CR CTHE ,FLASHLIGHT <GET ,FLASHLIGHT-TABLE 1>>)>
 	 <SETG FLASHLIGHT-TABLE <REST ,FLASHLIGHT-TABLE 4>>
@@ -2147,7 +2147,7 @@ S "You release the ""doors, which spring shut">
 	       (ELSE
 		<TELL THE ,PRSI>)>>
 
-<ROUTINE ELEVATOR-DOORS-F ("AUX" (TMP <>) AUTO (EH? <ELEVATOR-HERE?>))
+<ROUTINE ELEVATOR-DOORS-F ("AUX" (TMP <>) (EH? <ELEVATOR-HERE?>))
 	 <COND (<VERB? EXAMINE>
 		<COND (<HERE? ,ELEVATOR-PIT>
 		       <TELL
@@ -2789,7 +2789,7 @@ you ask me." CR>)>
 	       (<HERE? ,TUNNEL> ,TUNNEL-EAST)
 	       (ELSE ,TUNNEL)>>
 
-<ROUTINE RATS-EXIT ("AUX" H)
+<ROUTINE RATS-EXIT ()
 	 <COND (<AND <IN? ,RATS ,HERE>
 		     <NOT ,ON-CABLE?>>
 		<SETG RATS-HERE <+ ,RATS-HERE 1>>
@@ -5727,7 +5727,7 @@ no way to go around him." CR>
 		      (ELSE
 		       ,CHEMISTRY-BLDG)>)>>
 
-<ROUTINE INF-F (RARG "AUX" L)
+<ROUTINE INF-F (RARG)
 	 <COND (<RARG? LOOK>
 		<TELL
 "The so-called infinite corridor runs from east to west in the main
@@ -6770,7 +6770,7 @@ floor fifteen feet below. Before you can react, it's gone." CR CR>)>)>>
 <GLOBAL LADDER-TOP? <>>
 <GLOBAL LADDER-BOTTOM? <>>
 
-<ROUTINE DOME-LADDER-DESC ("OPT" RARG OBJ)
+<ROUTINE DOME-LADDER-DESC ("OPT" RARG)
 	 <COND (<RARG? OBJDESC?> <RTRUE>)
 	       (ELSE
 		<COND (<NOT <FSET? ,DOME-LADDER ,TOUCHBIT>>
